@@ -18,14 +18,15 @@ public class RectangleCommandExecutor extends CommandExecutor {
     @Override
     public Canvas executeCommand(Canvas canvas, String[] cmds) {
         verifyCanvasCreated(canvas) ;
+        validate(cmds) ;
         int y1 = Integer.parseInt(cmds[1]);
         int x1= Integer.parseInt(cmds[2]);
         int y2 = Integer.parseInt(cmds[3]);
         int x2 = Integer.parseInt(cmds[4]);
         
 
-        validatePointInsideCanvas(x1,y1,canvas.getHeight(),canvas.getWidth()) ;
-        validatePointInsideCanvas(x2,y2,canvas.getHeight(),canvas.getWidth()) ;
+        validatePointInsideCanvas(x1,y1,canvas.getAugmentedHeight(),canvas.getAugmentedWidth()) ;
+        validatePointInsideCanvas(x2,y2,canvas.getAugmentedHeight(),canvas.getAugmentedWidth()) ;
         
         char[][] charArray = canvas.getCharArray() ;
         lineCommandExecutor.drawStraightLine(x1,y1,x1,y2,marker,charArray) ;

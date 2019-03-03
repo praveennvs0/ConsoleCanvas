@@ -30,14 +30,19 @@ public class DrawingCanvas {
     }
     
     
-    public void drawOnCanvas(String command) {
+    /**Function that will be called by the users to draw on the canvas
+     * @param command
+     * @return
+     */
+    public Canvas drawOnCanvas(String command) {
         String[] cmds=command.split(commandSeparator) ;
         CommandExecutor commandExecutor = stringCommandExecutorMap.get(cmds[0]) ;
         if(commandExecutor==null) {
-            throw new InvalidCommandException("Invalid Command name entered") ;
+            throw new InvalidCommandException("Invalid Command name entered.Cannot execute this command") ;
         }
         canvas = commandExecutor.executeCommand(canvas, cmds) ;
         canvas.display();
+        return canvas ;
     }
     
 }

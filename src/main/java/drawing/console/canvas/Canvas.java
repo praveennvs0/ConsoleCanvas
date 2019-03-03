@@ -15,6 +15,7 @@ public class Canvas {
         height = h ;
         width = w ;
         // this buffer is needed or else, the part of the canvas near the boundary cannot be used
+        //in our 2D array represenation
         height = height + 2;
         width= width+2;
         
@@ -29,6 +30,9 @@ public class Canvas {
     }
     
     private void initializeCharArray() {
+        /*every point is initialized to single space. this will be later replaced by Xs
+         * when some geometrical figures (line,rectangle etc) are drawn.
+         */
         for(int i=0;i<height;i++) 
             for(int j=0;j<width; j++)
                 charArray[i][j]=' ';
@@ -44,7 +48,7 @@ public class Canvas {
         this.charArray = charArray;
     }
 
-    public int getHeight() {
+    public int getAugmentedHeight() {
         return height;
     }
 
@@ -52,10 +56,20 @@ public class Canvas {
         this.height = height;
     }
 
-    public int getWidth() {
+    public int getAugmentedWidth() {
         return width;
     }
 
+    public int getWidth() {
+        return width-2 ;
+        
+    }
+    
+    public int getHeight() {
+        return height-2 ;
+        
+    }
+    
     public void setWidth(int width) {
         this.width = width;
     }

@@ -19,7 +19,7 @@ public class LineCommandExecutor extends CommandExecutor {
     public Canvas executeCommand(Canvas canvas, String[] cmds) {
         verifyCanvasCreated(canvas) ;
         validate(cmds) ;
-        /*Pay attention. This is deliberate..User enters L x1 y1 x2 y2 but we interchange x and y to fit the 
+        /*This is deliberate..User enters L x1 y1 x2 y2 but we interchange x and y to fit the 
          * graphical co-ordinates into our 2D array - matrix type representation
          * 
          */
@@ -30,8 +30,8 @@ public class LineCommandExecutor extends CommandExecutor {
         
 
         
-        validatePointInsideCanvas(x1,y1,canvas.getHeight(),canvas.getWidth()) ;
-        validatePointInsideCanvas(x2,y2,canvas.getHeight(),canvas.getWidth()) ;
+        validatePointInsideCanvas(x1,y1,canvas.getAugmentedHeight(),canvas.getAugmentedWidth()) ;
+        validatePointInsideCanvas(x2,y2,canvas.getAugmentedHeight(),canvas.getAugmentedWidth()) ;
         char[][] charArray = canvas.getCharArray() ;
         drawStraightLine(x1,y1,x2,y2,lineMarker,charArray) ;
         
@@ -43,7 +43,7 @@ public class LineCommandExecutor extends CommandExecutor {
 
     public void drawStraightLine(int x1,int y1,int x2,int y2,char ch,char[][] charArray) {
         if(x1 != x2 && y1 != y2) {
-            throw new CrossLineNotSupportedException("No cross or curved lines allowed") ;
+            throw new CrossLineNotSupportedException("No cross lines are allowed") ;
         }
         
         if(y1==y2) { //vertical line

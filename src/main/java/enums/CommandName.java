@@ -1,7 +1,7 @@
 package enums;
 
+// stores the command names 
 public enum CommandName {
-    
 
     CANVAS("C"),
     LINE("L"),

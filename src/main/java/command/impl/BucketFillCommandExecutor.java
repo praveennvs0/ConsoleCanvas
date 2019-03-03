@@ -27,7 +27,7 @@ public class BucketFillCommandExecutor extends CommandExecutor {
     }
 
     private void floodFill(Canvas canvas, int x, int y,char color) {
-        floodFillUtil(canvas.getCharArray(),x,y,canvas.getHeight(),canvas.getWidth(),color) ;
+        floodFillUtil(canvas.getCharArray(),x,y,canvas.getAugmentedHeight(),canvas.getAugmentedWidth(),color) ;
     }
     
     //Uses the standard Flood-fill algorithm.. An application of Depth First Search
