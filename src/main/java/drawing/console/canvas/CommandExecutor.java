@@ -6,6 +6,7 @@ import exception.*;
 
 
 public abstract class CommandExecutor {
+    
 public abstract Canvas executeCommand(Canvas canvas,String[] cmds) ;
 public abstract void validate(String[] cmds) ;
 
